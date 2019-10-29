@@ -11,6 +11,7 @@
     <properties>
         <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
         <mybatis-springboot-version>2.0.1</mybatis-springboot-version>
+        <mapper-spring-boot-starter.version>2.1.4</mapper-spring-boot-starter.version>
     </properties>
 
     <dependencyManagement>
@@ -26,6 +27,11 @@
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis-springboot-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper-spring-boot-starter</artifactId>
+                <version>${mapper-spring-boot-starter.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
