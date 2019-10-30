@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: oauth2-server
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    username: root
+    password: yali
+    url: jdbc:mysql://localhost:3306/myshop?characterEncoding=utf-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true&useSSL=true&zeroDateTimeBehavior=convertToNull&autoReconnect = true
+    hikari:
+      maximum-pool-size: 20
+      max-lifetime: 30000
+      idle-timeout: 30000
+      data-source-properties:
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        cachePrepStmts: true
+        useServerPrepStmts: true
+security:
+  oauth2:
+    client:
+      client-id: client
+      client-secret: secret
+      access-token-uri: http://localhost:8080/oauth/token
+      user-authorization-uri: http://localhost:8080/oauth/authorize
+    resource:
+      token-info-uri: http://localhost:8080/oauth/check_token
+server:
+  port: 8081
+  servlet:
+    context-path: /contents
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
