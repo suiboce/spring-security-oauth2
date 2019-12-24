@@ -4,6 +4,7 @@ import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -19,7 +20,7 @@ import org.springframework.security.oauth2.provider.code.JdbcAuthorizationCodeSe
 import org.springframework.security.oauth2.provider.token.AuthorizationServerTokenServices;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
+import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
 /**
  * @author wzh
@@ -34,11 +35,12 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     AuthenticationManager authenticationManager;
     @Autowired
     HikariDataSource hikariDataSource;
-
+    @Autowired
+    RedisConnectionFactory redisConnectionFactory;
     //令牌生成方案  默认在内存中生成普通令牌
     @Bean
     public TokenStore tokenStore(){
-        return new JdbcTokenStore(hikariDataSource);
+        return new RedisTokenStore(redisConnectionFactory);
     }
 
     public ClientDetailsService jdbcClientDetailsService(){
