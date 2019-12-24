@@ -1,5 +1,6 @@
 package com.wzh.spring.security.oauth2.sever;
 
+import com.wzh.spring.security.oauth2.sever.config.service.TbUserService;
 import com.wzh.spring.security.oauth2.sever.domain.TbPermission;
 import com.wzh.spring.security.oauth2.sever.mapper.TbPermissionMapper;
 import org.junit.Test;
@@ -23,9 +24,16 @@ public class OAuth2ServiceApplicationTest {
     }
     @Autowired
     TbPermissionMapper tbPermissionMapper;
+    @Autowired
+    TbUserService tbUserService;
     @Test
     public void test1(){
-        List<TbPermission> tbPermissions = tbPermissionMapper.selectPermissionsByUserId(1);
-        System.out.println(tbPermissions.size());
+        List<TbPermission> tbPermissions = tbPermissionMapper.selectByUserId(1L);
+        tbPermissions.forEach(System.out::println);
+    }
+
+    @Test
+    public void test2(){
+        System.out.println(tbUserService.getByUsername("admin"));
     }
 }
