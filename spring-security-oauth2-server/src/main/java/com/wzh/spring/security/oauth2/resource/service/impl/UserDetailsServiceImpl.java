@@ -1,9 +1,9 @@
-package com.wzh.spring.security.oauth2.sever.config.service.impl;
+package com.wzh.spring.security.oauth2.resource.service.impl;
 
-import com.wzh.spring.security.oauth2.sever.config.service.TbPermissionService;
-import com.wzh.spring.security.oauth2.sever.config.service.TbUserService;
-import com.wzh.spring.security.oauth2.sever.domain.TbPermission;
-import com.wzh.spring.security.oauth2.sever.domain.TbUser;
+import com.wzh.spring.security.oauth2.resource.domain.TbPermission;
+import com.wzh.spring.security.oauth2.resource.domain.TbUser;
+import com.wzh.spring.security.oauth2.resource.service.TbPermissionService;
+import com.wzh.spring.security.oauth2.resource.service.TbUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;

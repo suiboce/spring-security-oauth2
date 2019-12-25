@@ -1,8 +1,8 @@
-package com.wzh.spring.security.oauth2.sever;
+package com.wzh.spring.security.oauth2.resource;
 
-import com.wzh.spring.security.oauth2.sever.config.service.TbUserService;
-import com.wzh.spring.security.oauth2.sever.domain.TbPermission;
-import com.wzh.spring.security.oauth2.sever.mapper.TbPermissionMapper;
+import com.wzh.spring.security.oauth2.resource.service.TbUserService;
+import com.wzh.spring.security.oauth2.resource.domain.TbPermission;
+import com.wzh.spring.security.oauth2.resource.mapper.TbPermissionMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

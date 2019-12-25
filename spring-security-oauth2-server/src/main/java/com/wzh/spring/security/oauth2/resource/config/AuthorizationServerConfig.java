@@ -1,4 +1,4 @@
-package com.wzh.spring.security.oauth2.sever.config;
+package com.wzh.spring.security.oauth2.resource.config;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
