@@ -1,4 +1,4 @@
-package com.wzh.spring.security.oauth2.resource;
+package com.wzh.spring.security.oauth2.sever;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,7 +9,7 @@ import tk.mybatis.spring.annotation.MapperScan;
  * @date 2019/10/29 - 11:22
  */
 @SpringBootApplication
-@MapperScan(basePackages = "com.wzh.spring.security.oauth2.resource.mapper")
+@MapperScan(basePackages = "com.wzh.spring.security.oauth2.sever.mapper")
 public class OAuth2ServerApplication {
     public static void main(String[] args) {
         SpringApplication.run(OAuth2ServerApplication.class,args);

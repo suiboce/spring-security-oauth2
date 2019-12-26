@@ -56,7 +56,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.wzh.spring.security.oauth2.resource.OAuth2ServerApplication</mainClass>
+                    <mainClass>com.wzh.spring.security.oauth2.sever.OAuth2ServerApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

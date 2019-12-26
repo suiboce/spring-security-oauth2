@@ -1,4 +1,4 @@
-package com.wzh.spring.security.oauth2.resource.dto;
+package com.wzh.spring.security.oauth2.sever.dto;
 
 import lombok.Data;
 

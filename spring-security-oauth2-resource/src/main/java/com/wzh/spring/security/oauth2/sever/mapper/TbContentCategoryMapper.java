@@ -1,6 +1,6 @@
-package com.wzh.spring.security.oauth2.resource.mapper;
+package com.wzh.spring.security.oauth2.sever.mapper;
 
-import com.wzh.spring.security.oauth2.resource.domain.TbContentCategory;
+import com.wzh.spring.security.oauth2.sever.domain.TbContentCategory;
 import tk.mybatis.mapper.MyMapper;
 
 /**

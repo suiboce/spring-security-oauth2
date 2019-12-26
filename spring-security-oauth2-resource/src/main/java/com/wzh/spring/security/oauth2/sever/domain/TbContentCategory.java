@@ -1,4 +1,4 @@
-package com.wzh.spring.security.oauth2.resource.domain;
+package com.wzh.spring.security.oauth2.sever.domain;
 
 import java.io.Serializable;
 import java.util.Date;

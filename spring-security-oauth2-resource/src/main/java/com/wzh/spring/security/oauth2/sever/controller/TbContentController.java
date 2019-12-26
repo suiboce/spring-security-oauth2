@@ -1,8 +1,8 @@
-package com.wzh.spring.security.oauth2.resource.controller;
+package com.wzh.spring.security.oauth2.sever.controller;
 
-import com.wzh.spring.security.oauth2.resource.domain.TbContent;
-import com.wzh.spring.security.oauth2.resource.dto.ResponseResult;
-import com.wzh.spring.security.oauth2.resource.service.TbContentService;
+import com.wzh.spring.security.oauth2.sever.domain.TbContent;
+import com.wzh.spring.security.oauth2.sever.dto.ResponseResult;
+import com.wzh.spring.security.oauth2.sever.service.TbContentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;

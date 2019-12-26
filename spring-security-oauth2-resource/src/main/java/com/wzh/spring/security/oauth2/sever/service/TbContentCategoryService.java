@@ -1,4 +1,4 @@
-package com.wzh.spring.security.oauth2.resource.service;
+package com.wzh.spring.security.oauth2.sever.service;
 
     /**
 @author wzh

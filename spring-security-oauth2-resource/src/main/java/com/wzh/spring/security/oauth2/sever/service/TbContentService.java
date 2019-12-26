@@ -1,6 +1,6 @@
-package com.wzh.spring.security.oauth2.resource.service;
+package com.wzh.spring.security.oauth2.sever.service;
 
-import com.wzh.spring.security.oauth2.resource.domain.TbContent;
+import com.wzh.spring.security.oauth2.sever.domain.TbContent;
 
 import java.util.List;
 

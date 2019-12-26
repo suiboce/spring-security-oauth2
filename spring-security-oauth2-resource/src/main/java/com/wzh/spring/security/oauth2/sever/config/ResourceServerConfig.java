@@ -1,4 +1,4 @@
-package com.wzh.spring.security.oauth2.resource.config;
+package com.wzh.spring.security.oauth2.sever.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;

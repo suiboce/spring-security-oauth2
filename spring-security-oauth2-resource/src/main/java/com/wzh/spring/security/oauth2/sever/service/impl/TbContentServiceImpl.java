@@ -1,8 +1,8 @@
-package com.wzh.spring.security.oauth2.resource.service.impl;
+package com.wzh.spring.security.oauth2.sever.service.impl;
 
-import com.wzh.spring.security.oauth2.resource.domain.TbContent;
-import com.wzh.spring.security.oauth2.resource.mapper.TbContentMapper;
-import com.wzh.spring.security.oauth2.resource.service.TbContentService;
+import com.wzh.spring.security.oauth2.sever.domain.TbContent;
+import com.wzh.spring.security.oauth2.sever.mapper.TbContentMapper;
+import com.wzh.spring.security.oauth2.sever.service.TbContentService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

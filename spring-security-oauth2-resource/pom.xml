@@ -52,7 +52,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.wzh.spring.security.oauth2.resource.OAuth2ResourceApplication</mainClass>
+                    <mainClass>com.wzh.spring.security.oauth2.sever.OAuth2ResourceApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>
