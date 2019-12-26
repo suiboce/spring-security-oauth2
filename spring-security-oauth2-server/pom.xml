@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>spring-security-oauth2-server</artifactId>
-
+    <name>spring-security-oauth2-server</name>
     <dependencies>
         <!-- Spring Boot -->
         <dependency>

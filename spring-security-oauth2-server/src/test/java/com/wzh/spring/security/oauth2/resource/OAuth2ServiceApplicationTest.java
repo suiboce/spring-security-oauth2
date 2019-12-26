@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
@@ -28,7 +29,9 @@ public class OAuth2ServiceApplicationTest {
     TbUserService tbUserService;
     @Test
     public void test1(){
-        List<TbPermission> tbPermissions = tbPermissionMapper.selectByUserId(1L);
+        Example example = new Example(TbPermission.class);
+        example.createCriteria().andEqualTo("parentId",7);
+        List<TbPermission> tbPermissions = tbPermissionMapper.selectByExample(example);
         tbPermissions.forEach(System.out::println);
     }
 
