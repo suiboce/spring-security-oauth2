@@ -1,5 +1,6 @@
 package com.wzh.spring.security.oauth2.sever.config;
 
+import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,12 +13,13 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
+import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
 import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
-import org.springframework.security.oauth2.provider.code.InMemoryAuthorizationCodeServices;
+import org.springframework.security.oauth2.provider.code.JdbcAuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.token.AuthorizationServerTokenServices;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
+import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 
 /**
  * @author wzh
@@ -29,33 +31,31 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Autowired
     BCryptPasswordEncoder passwordEncoder;
     @Autowired
-    ClientDetailsService clientDetailsService;
-    @Autowired
     AuthenticationManager authenticationManager;
+    @Autowired
+    HikariDataSource hikariDataSource;
 
     //令牌生成方案  默认在内存中生成普通令牌
     @Bean
     public TokenStore tokenStore(){
-        return new InMemoryTokenStore();
+        return new JdbcTokenStore(hikariDataSource);
+    }
+
+    public ClientDetailsService jdbcClientDetailsService(){
+        return new JdbcClientDetailsService(hikariDataSource);
     }
 
     // 配置客户端详情信息服务 客户端通过client_id和client_secret来访问资源
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory()
-                .withClient("client")// client_id
-                .secret(passwordEncoder.encode("secret"))// client_secret
-                .authorizedGrantTypes("authorization_code")// 授权类型,共有authorization_code,password,client_credentials,implicit,refresh_token五种
-                .scopes("app")// 授权范围
-                .autoApprove(false)// false跳转到授权页面  true 直接发令牌
-                .redirectUris("http://www.baidu.com");// 注册回调地址
+        clients.withClientDetails(jdbcClientDetailsService());
     }
 
     // 令牌访问服务
     @Bean
     public AuthorizationServerTokenServices tokenServices(){
         DefaultTokenServices tokenServices = new DefaultTokenServices();
-        tokenServices.setClientDetailsService(clientDetailsService);//客户端信息服务
+        tokenServices.setClientDetailsService(jdbcClientDetailsService());//客户端信息服务
         tokenServices.setTokenStore(tokenStore());// 令牌生成方案
         tokenServices.setRefreshTokenValiditySeconds(7200);//令牌默认有效期2小时
         tokenServices.setAccessTokenValiditySeconds(259200);// 刷新令牌默认有效期3天
@@ -66,7 +66,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     // 授权码模式
     @Bean
     public AuthorizationCodeServices authorizationCodeServices(){
-        return new InMemoryAuthorizationCodeServices();
+        return new JdbcAuthorizationCodeServices(hikariDataSource);
     }
 
     // 令牌访问端点

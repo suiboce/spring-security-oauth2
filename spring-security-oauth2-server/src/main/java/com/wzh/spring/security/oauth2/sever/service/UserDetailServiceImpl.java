@@ -18,7 +18,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
     PasswordEncoder bCryptPasswordEncoder;
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        //实际UserDetails根据s用户名去数据库查询，将结果放入UserDetails中，系统会去比较
+        //实际UserDetails根据s用户名去数据库查询，将结果放入UserDetails中，系统会去比较 参考下面RBAC
         System.out.println("username:"+s);
         UserDetails userDetails = User.withUsername("zhangsan")
                 .password(bCryptPasswordEncoder.encode("123456")).roles("VIP1","VIP3").build();
