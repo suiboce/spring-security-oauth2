@@ -9,8 +9,8 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>spring-security-oauth2-server</artifactId>
-    <name>spring-security-oauth2-server</name>
+    <artifactId>spring-security-oauth2-resource</artifactId>
+
     <dependencies>
         <!-- Spring Boot -->
         <dependency>
@@ -20,10 +20,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
         <!-- Spring Security -->
@@ -56,7 +52,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.wzh.spring.security.oauth2.resource.OAuth2ServerApplication</mainClass>
+                    <mainClass>com.wzh.spring.security.oauth2.resource.OAuth2ResourceApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>
